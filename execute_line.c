@@ -8,27 +8,26 @@
  */
 int exec(char **arguments)
 {
-	pid_t pid = 0;
-	int stat = 0, exe_stat = 0;
-
-	pid = fork();
-	if (pid == -1)
-		_printp("failed\n", 7);
-	else if (pid == 0)
-	{
-		exe_stat = execve(arguments[0], arguments, environ);/**Run the command*/
-		if (exe_stat == -1)
-		{
-			exe_stat = 126;
-			perror("hsh");
-			exit(exe_stat);
-		}
-		exit(0);
-	}
-	else 
-		wait(&stat);
-	exe_stat = WEXITSTATUS(stat);
-	return (exe_stat);
+pid_t pid = 0;
+int stat = 0, exe_stat = 0;
+pid = fork();
+if (pid == -1)
+_printp("failed\n", 7);
+else if (pid == 0)
+{
+exe_stat = execve(arguments[0], arguments, environ);
+if (exe_stat == -1)
+{
+exe_stat = 126;
+perror("hsh");
+exit(exe_stat);
+}
+exit(0);
+}
+else
+wait(&stat);
+exe_stat = WEXITSTATUS(stat);
+return (exe_stat);
 }
 
 /**
@@ -38,16 +37,16 @@ int exec(char **arguments)
  */
 int exist(char *pathname)
 {
-	int exist_stat;
+int exist_stat;
 
-	exist_stat = (open(pathname, O_RDONLY));
-	if (exist_stat != -1)
-	{
-		close(exist_stat);
-		return (0);
-	}
-	else
-		return (-1);
+exist_stat = (open(pathname, O_RDONLY));
+if (exist_stat != -1)
+{
+close(exist_stat);
+return (0);
+}
+else
+return (-1);
 }
 
 /**
@@ -59,18 +58,17 @@ int exist(char *pathname)
 
 int fill_args(char *entry, char **arguments)
 {
-	int i = 0;
-	char *options, *aux = entry, *command;
-
-	command = strtok(entry, "\n\t\r "); 
-	arguments[i] = command; 
-	while (aux != NULL) 
-	{
-		++i;
-		options = strtok(NULL, "\n\t\r "); 
-		aux = options;
-		arguments[i] = options; 
-	}
-	arguments[i] = NULL; 
-	return (i); 
+int i = 0;
+char *options, *aux = entry, *command;
+command = strtok(entry, "\n\t\r ");
+arguments[i] = command;
+while (aux != NULL)
+{
+++i;
+options = strtok(NULL, "\n\t\r ");
+aux = options;
+arguments[i] = options;
+}
+arguments[i] = NULL;
+return (i);
 }

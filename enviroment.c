@@ -21,7 +21,6 @@ char *_getenv(char *global_var)
 			if (_strcmp(env_tok, global_var) == 0)
 			{
 				env_tok = strtok(NULL, cutter);
-				
 				env_tok_dup = _strdup(env_tok);
 				free(envdup);
 				return (env_tok_dup);

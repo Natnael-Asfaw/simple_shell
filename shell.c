@@ -5,9 +5,9 @@
  */
 int main(void)
 {
-ssize_t bytes_rd = 0; 
-size_t bf_size = 0; 
-char *entry = NULL, *arguments[20]; 
+ssize_t bytes_rd = 0;
+size_t bf_size = 0;
+char *entry = NULL, *arguments[20];
 int counter = 1, vf_stat = 0, exist_stat = 0, exit_stat = 0, blt_stat = 0;
 
 _printp("$ ", 2);
@@ -29,7 +29,7 @@ else
 {
 blt_stat = verify_blt(arguments, exit_stat);
 if (blt_stat != 0)
-exit_stat= print_not_found(arguments, counter), free(entry);
+exit_stat = print_not_found(arguments, counter), free(entry);
 }
 }
 else
