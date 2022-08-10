@@ -17,16 +17,13 @@ void _puts(char *str);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *concat_all(char *name, char *sep, char *value);
-
 char **splitstring(char *str, const char *delim);
 void execute(char **argv);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-
-
 extern char **environ;
 
 /**
- * struct list_path - Linked list containing 
+ * struct list_path - Linked list containing
  * path directories
  * @dir: directory in path
  * @p: pointer to next node
@@ -36,14 +33,13 @@ typedef struct list_path
 char *dir;
 struct list_path *p;
 } list_path;
-
 char *_getenv(const char *name);
 list_path *add_node_end(list_path **head, char *str);
 list_path *linkpath(char *path);
 char *_which(char *filename, list_path *head);
 
 /**
- * struct mybuild - pointer to function with 
+ * struct mybuild - pointer to function with
  * corresponding build in command
  * @name: build in command
  * @func: execute the build in command
