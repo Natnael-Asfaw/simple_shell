@@ -1,8 +1,7 @@
 #include "main.h"
 
-
 /**
- * splitstring - splits a string and makes it an array of 
+ * splitstring - splits a string and makes it an array of
  * pointers to a specific words
  * @str: string to be split
  * @delim: the delimiter
