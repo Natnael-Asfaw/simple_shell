@@ -1,5 +1,5 @@
 #include "main.h"
-​
+
 /**
  * _realloc - Reallocates memory block
  * @ptr: previous pointer
@@ -7,7 +7,7 @@
  * @new_size: new size for our pointer
  * Return: New resized Pointer
  */
-​
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 char *new;
@@ -15,16 +15,16 @@ char *old;
 unsigned int i;
 if (ptr == NULL)
 return (malloc(new_size));
-​
+
 if (new_size == old_size)
 return (ptr);
-​
+
 if (new_size == 0 && ptr != NULL)
 {
 free(ptr);
 return (NULL);
 }
-​
+
 new = malloc(new_size);
 old = ptr;
 if (new == NULL)
@@ -45,12 +45,12 @@ free(ptr);
 }
 return (new);
 }
-​
+
 /**
  * freearv - frees the array of pointers arv
  *@arv: array of pointers
  */
-​
+
 void freearv(char **arv)
 {
 int i;

@@ -1,5 +1,5 @@
 #include "main.h"
-​
+
 /**
  * _atoi - converts a string into an integer
  *@s: pointer to a string
